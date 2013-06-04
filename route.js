@@ -23,6 +23,8 @@ module.exports = function(app){
 	app.post('/login/post',controllerMain.loginPost);
 
 	app.get('/main',controllerIndex.main);
+
+	app.get('/video',controllerIndex.video);
 	
 }
 
