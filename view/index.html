@@ -1,19 +1,16 @@
-<!DOCTYPE html>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    
 <!-- META -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Language" content="zh-cn" />
-<meta name="description"
-content="贴心小便签" />
+<meta name="description" content="贴心小便签" />
 <meta name="author" content="村长-李杨" />
 <meta name="Copyright" content="Copyright &copy;2013 村长works" />
 
 <!-- TITLE -->
-<title>贴心小便签</title>
+<title>买票大全</title>
 
 <meta name="viewport" content="width=device-width" />
 
@@ -37,151 +34,117 @@ content="贴心小便签" />
 <!-- iPHONE -->
 <link rel="apple-touch-icon" href="/apple-touch-icon-precomposed.png"/>
 <style>
-.btn-create{
-  border:solid 2px #ddd;
-  padding:5px;
-}
-.btn-close{
-  border:solid 2px #ddd;
-  padding:5px;
-}
-.btn-ok{
-  border:solid 2px #ddd;
-  padding:5px;
-}
-.create-window{
-  display:none;
-  border:solid 3px #ddd;
-  width:400px;
-  height:270px;
-  margin-left:200px;
-  position:absolute;
-  top:300px;
-  vertical-align: right;
-  background-color:#FFFAFA;
-  filter:alpha(opacity=50,Style=0);
-}
-.create-window-content{
-  padding:10px;
-}
-.input-label{
-  margin-top:10px;
-  width:30px;
-  /*float:left;*/
-  position:relative;
-}
-.input-title{
-  margin-top:10px;
-  margin-left:25px;
-  height:30px;
-  border:solid 2px #ddd;
-  width:250px;
-}
+.label{
 
-.input-content{
-  margin-left:30px;
-  margin-top:10px;
-  height:40px;
-  border:solid 2px #ddd;
-  width:250px;
-}
-
-.window-title{
-  margin: 0 0 8px 0;
-  padding: 10px 0 0px 0;
-}
-
-.action-group{
-  margin-left:40%;
 }
 </style>
 <script>
-  $(function(){
-    $(".journal-cls").click(function(){
-      var id = $(this).data("id");
-    });
-
-    $(".btn-create").click(function(){
-      $(".create-window").css("display","inline");
-    });
-
-    $(".btn-close").click(function(){
-      $(".create-window").css("display","none");
-    })
-  });
-  
 </script>
-
-
 </head>
-
 <body class="home">
-    
-  <div id="page">
+	<div id="page">
+		<div id="branding">
+    			<h2>买票大全</h2>	
+		</div>
+		<div>
+			<h3><a class="btn-create" style="float:left;color:#fff;background:#393;padding:10px;margin-right:5px;">全部</a></h3>
+			<h3><a class="btn-create" style="float:left;color:#fff;background:#393;padding:10px;margin-right:5px;">火车票</a></h3>
+			<h3><a class="btn-create" style="float:left;color:#fff;background:#393;padding:10px;margin-right:5px;">飞机票</a></h3>
+			<h3><a class="btn-create" style="float:left;color:#fff;background:#393;padding:10px;margin-right:5px;">汽车票</a></h3>
+			<h3><a class="btn-create" style="float:left;color:#fff;background:#393;padding:10px;margin-right:5px;">船票</a></h3>
+		</div>
+		<ul id="navigation_pri">
 
-    <div id="branding">
-          <h2>贴心小便签</h2>  
-    </div>
-    <div>
-      <h3><a class="btn-create">创建用户</a></h3>
-    </div>
-    <ul id="navigation_pri">
-
-
-    <li id="journal" style="width:400px;">
-      <span class="label"><span style="font-size:20px;">登录:</span></span> <br><br><br>
-        <span class="input-label">用户名:</span><input type="text" class="input-title" value=""/><br>
-        <span class="input-label">密  <span style="margin-left:10px;">码<span>:</span><input type="password" class="input-title" value=""/>
-         <ul style="list-style:none">
-         <li style="float:left;margin: 10px 10px 0px 0px;height: 40px;margin-left:145px;">
-            <h3><a class="btn-ok">确定</a></h3>
-            
-          </li>
-          <li style="float:left;margin: 10px 10px 0px 0px;height: 40px">
-            <h3><a class="btn-close">忘记密码?</a></h3>
-          </li>
-          </ul>
+	<li id="journal" class="buy-train"><a target="_blank" href="http://trip.taobao.com/" class="journal-cls" data-id="1">
+    	<span class="label" style="font-size:17px;color:#39C;">淘宝旅行</span>
+    	<span class="strap"><span>一站式服务,淘宝你懂的</span></span> 
+    	<span>
+    	<p>淘宝旅行整合数千家机票代理商、航空公司、旅行社、旅行代理商资源，为旅游者提供国内机票/国际机票/酒店客栈/景点门票/国内国际度假旅游/签证（通行证）/旅游卡券/租车/邮轮等旅游产品的信息搜索、购买、售后服务的一站式解决方案。全程采用支付宝担保交易，安全、可靠、有保证。</p>
+    	</span>
+    	<span class="tag" style="color:#d67b95">类型 : 飞机票 酒店 旅游 门票 签证</a>
+    </a>
     </li>
+
+    <li id="journal" class="buy-train"><a target="_blank" href="http://www.12306.cn" class="journal-cls" data-id="1">
+    	<span class="label" style="font-size:17px;color:#39C;">12306火车票</span>
+    	<span class="strap"><span>铁道部客户服务官方网站</span></span> 
+    	<span>
+    	<p>铁路部门将全国铁路客户服务中心的电话统一为“12306”，并进一步规范客服业务流程和服务标准，旅客可以通过全国铁路客户服务中心网站或打电话“12306”等方式查询列车车次、时刻、票价、余票等信息。</p>
+    	</span>
+    	<span class="tag" style="color:#d67b95">类型 : 火车票</a>
+    </a>
+    </li>
+
+    <li id="journal" class="buy-train"><a target="_blank" href="http://www.ctrip.com" class="journal-cls" data-id="1">
+    	<span class="label" style="font-size:17px;color:#39C;">携程旅行网</span>
+    	<span class="strap"><span>中国领先的在线旅行服务</span></span> 
+    	<span>
+    	<p>携程旅行网的度假超市提供近千条度假线路，覆盖海内外众多目的地，并且提供从北京、上海、广州、深圳、杭州、成都六地出发，是中国领先的度假旅行服务网络，每月为万余人次提供度假服务。</p>
+    	</span>
+    	<span class="tag" style="color:#d67b95">类型 : 飞机票 酒店 旅游 门票 </a>
+    </a>
+    </li>
+
+    <li id="journal" class="buy-train"><a target="_blank" href="http://www.qunar.com/" class="journal-cls" data-id="1">
+    	<span class="label" style="font-size:17px;color:#39C;">去哪儿网</span>
+    	<span class="strap"><span>聪明地安排消费者的旅行</span></span> 
+    	<span>
+    	<p>聪明地安排消费者的旅行，竭力为消费者提供最全面、性价比最高的产品、可靠的服务和便捷的技术工具。通过网站及移动客户端的全平台覆盖，去哪儿可以随时随地为旅行者提供国内外机票、酒店、度假、旅游团购、及旅行信息的深度搜索。</p>
+    	</span>
+    	<span class="tag" style="color:#d67b95">类型 : 飞机票 酒店 旅游 门票 </a>
+    </a>
+    </li>
+
+    <li id="journal" class="buy-train"><a target="_blank" href="http://www.tuniu.com/" class="journal-cls" data-id="1">
+    	<span class="label" style="font-size:17px;color:#39C;">途牛旅游网</span>
+    	<span class="strap"><span>途牛旅游网整合旅游行业资源</span></span> 
+    	<span>
+    	<p>途牛旅游网目前提供北京、上海、天津、深圳、南京、苏州、杭州、成都等出发地旅游产品的预订，包括周边自助旅游，周边跟团旅游，国内长线跟团旅游，海南、云南、广西等自助旅游，以及包括港澳、马尔代夫海岛在内的出境自助游，出境跟团旅游等。</p>
+    	</span>
+    	<span class="tag" style="color:#d67b95">类型 : 飞机票 酒店 旅游 门票 签证</a>
+    </a>
+    </li>
+    <li id="journal" class="buy-train"><a target="_blank" href="http://www.17u.cn/" class="journal-cls" data-id="1">
+    	<span class="label" style="font-size:17px;color:#39C;">同程网</span>
+    	<span class="strap"><span>中国一流的一站式旅游预订平台</span></span> 
+    	<span>
+    	<p>中国一流的旅游资讯类门户网站，为超过1000万会员提供真实可信的出行指南和旅游资讯。网站形成了以旅游攻略、点评、问答、博客为特色的旅游社区，为旅游者提供全球上千个热门目的地官方旅游攻略。</p>
+    	</span>
+    	<span class="tag" style="color:#d67b95">类型 : 飞机票 酒店 旅游 门票 签证</a>
+    </a>
+    </li>
+    <li id="journal" class="buy-train"><a target="_blank" href="http://www.elong.com/" class="journal-cls" data-id="1">
+    	<span class="label" style="font-size:17px;color:#39C;">艺龙旅行网</span>
+    	<span class="strap"><span>中国领先的在线旅行服务提供商</span></span> 
+    	<span>
+    	<p>艺龙旅行网通过提供强大的地图搜索、酒店360度全景展示、国内外热点目的地指南和用户真实点评等在线服务功能，使用户在获取广泛信息的基础上做出最佳的旅行决定，开始轻松愉快的旅程。</p>
+    	</span>
+    	<span class="tag" style="color:#d67b95">类型 : 飞机票 酒店 旅游</a>
+    </a>
+    </li>
+    <li id="journal" class="buy-train"><a target="_blank" href="http://www.china-sss.com/" class="journal-cls" data-id="1">
+    	<span class="label" style="font-size:17px;color:#39C;">春秋航空</span>
+    	<span class="strap"><span>国内唯一一家低成本航空公司</span></span> 
+    	<span>
+    	<p>春秋航空定位廉价航空公司，与追求豪华消费和高票价的现有国内航空公司“异类”。春秋航空将自己定位为“草根航空”，倡导反奢华的低成本消费理念和生活方式。</p>
+    	</span>
+    	<span class="tag" style="color:#d67b95">类型 : 飞机票</a>
+    </a>
+    </li>
+     <li id="journal" class="buy-train"><a target="_blank" href="http://www.keyunzhan.com/" class="journal-cls" data-id="1">
+    	<span class="label" style="font-size:17px;color:#39C;">客运站</span>
+    	<span class="strap"><span>汽车时刻表查询</span></span> 
+    	<span>
+    	<p>提供长途汽车时刻表查询,长途汽车票查询,全国客运站查询,长途汽车售票点查询等,还提供全国各省各级城市长途客运出发车次,车型,票价,时刻等查询服务。</p>
+    	</span>
+    	<span class="tag" style="color:#d67b95">类型 : 汽车票</a>
+    </a>
+    </li>
+
 </ul>
-    <!--div style="margin-left:500px;background:url(/images/cover.jpg);height:480px;width:640px;" >
-    </div-->
-    <div style="margin-left:500px;margin-top:40px; border:4px solid #ddd;">
-       <h2><br><span style="margin-left:50px;">记录你的过去,现在和未来.</h2>
-       <h2><br><br><span style="margin-left:50px;">为你做一件贴心的小事.</h2>
-       <h2><br><br><span style="margin-left:50px;">创建一个帐号享受贴心的服务吧.</h2>
-    </div>
-    <div id="siteinfo">
-        <p>Copyright &copy; 村长works 2013</p>
-        <p>Email:aiesecliyang.dalian@gmail.com</p>
-    </div>
-    <div class="create-window">
-      <div class="create-window-content">
-        <div class="window-title">
-            <h4>注册用户</h4> 
-        </div>
-        <span class="input-label">用<span style="margin-left:6px;">户</span><span style="margin-left:6px;">名</span>:</span><input type="text" class="input-title" value=""/><br>
-        <span class="input-label">密  <span style="margin-left:22px;">码:</span><input type="password" class="input-title" value=""/><br>
-        <span class="input-label">重复密码:</span><input type="password" class="input-title" value=""/>
-        <div class="action-group">
-        <ul style="list-style:none">
-          <li style="float:left;margin: 0px 10px 0px 0px;height: 20px">
-            <h3><a class="btn-ok">创建用户</a></h3>
-            
-          </li>
-          <li style="float:left;margin: 0px 10px 0px 0px;height: 20px">
-            <h3><a class="btn-close">关闭</a></h3>
-          </li>
-        </ul>
-        </div>
-      </div>
-    </div>
-
-
-  </div>
-
-
-
-
-
+		<div id="siteinfo">
+				<p>Copyright &copy; 村长works 2013</p>
+				<p>Email:aiesecliyang.dalian@gmail.com</p>
+		</div>
 </body>
 </html>
