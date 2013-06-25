@@ -34,27 +34,93 @@
 <!-- iPHONE -->
 <link rel="apple-touch-icon" href="/apple-touch-icon-precomposed.png"/>
 <style>
-.label{
+body{
+    margin:0px;
+}
+.mp-nav{
+    position: relative;
+    zoom: 1;
+    background: #edf4ed;
+    width: 100%;
+    min-width: 950px;
+    overflow: hidden;
+    height:80px;
+   
+}
 
+.logo{
+    font-size:28px;
+    margin-left:10%;
+    font-weight:bold;
+    color:#398;
+}
+.sub-logo{
+    font-size:14px;
+    color:#999;
+    float:left;
+    position:absolute;
+    margin-left:1%;
+}
+.sidebar-nav{
+    list-style:none;float:left;position:relative;
+}
+
+.sb-nav{
+    position:absolute;
+    top:10px;
+    left:60%;
+}
+.sidebar-li{
+    float:left;
+    margin-left:10px;
+    font-size:15px;
+    color:#39B;
+}
+.btn-create{
+    float:left;font-size:20px;color:#6BB;margin-right:5px;
 }
 </style>
 <script>
 </script>
 </head>
 <body class="home">
+    <div class="mp-nav">
+        <h2 class="logo">买票大全 <span class="sub-logo">买票一站式导航</span>   </h2>  
+    </div>
+    <div class="sb-nav">
+        <ul  class="sidebar-nav" style="">
+            <li class="sidebar-li">
+                <a href="" style="color:#39B;">首页</a>
+            </li>
+            <li class="sidebar-li">
+                <a href="" style="color:#39B;">团购大全</a>
+            </li>
+            <li class="sidebar-li">
+                <a href="" style="color:#39B;">便宜货</a>
+            </li>
+            <li class="sidebar-li">
+                <a href="" style="color:#39B;">找工作大全</a>
+            </li>
+        </ul>
+    </div>
 	<div id="page">
-		<div id="branding">
-    			<h2>买票大全</h2>	
-		</div>
-		<div>
-			<h3><a class="btn-create" style="float:left;color:#fff;background:#393;padding:10px;margin-right:5px;">全部</a></h3>
-			<h3><a class="btn-create" style="float:left;color:#fff;background:#393;padding:10px;margin-right:5px;">火车票</a></h3>
-			<h3><a class="btn-create" style="float:left;color:#fff;background:#393;padding:10px;margin-right:5px;">飞机票</a></h3>
-			<h3><a class="btn-create" style="float:left;color:#fff;background:#393;padding:10px;margin-right:5px;">汽车票</a></h3>
-			<h3><a class="btn-create" style="float:left;color:#fff;background:#393;padding:10px;margin-right:5px;">船票</a></h3>
-		</div>
+            <ul id="navigation_pri">
+            <h3><a class="btn-create" style="">火车票</a></h3><br>
+            <hr style="width:940px;">
+            <li id="journal" class="buy-train"><a target="_blank" href="http://www.12306.cn" class="journal-cls" data-id="1">
+                <span class="label" style="font-size:17px;color:#39C;">12306火车票</span>
+                <span class="strap"><span>铁道部客户服务官方网站</span></span> 
+                <span>
+                <!--p>铁路部门将全国铁路客户服务中心的电话统一为“12306”，并进一步规范客服业务流程和服务标准，旅客可以通过全国铁路客户服务中心网站或打电话“12306”等方式查询列车车次、时刻、票价、余票等信息。</p-->
+                </span>
+                <span class="tag" style="color:#d67b95">类型 : 火车票</a>
+                </a>
+            </li>
+        </ul>
 		<ul id="navigation_pri">
 
+    <h3><a class="btn-create" >飞机票</a></h3><br>
+    <hr>        
 	<li id="journal" class="buy-train"><a target="_blank" href="http://trip.taobao.com/" class="journal-cls" data-id="1">
     	<span class="label" style="font-size:17px;color:#39C;">淘宝旅行</span>
     	<span class="strap"><span>一站式服务,淘宝你懂的</span></span> 
@@ -65,15 +131,7 @@
     </a>
     </li>
 
-    <li id="journal" class="buy-train"><a target="_blank" href="http://www.12306.cn" class="journal-cls" data-id="1">
-    	<span class="label" style="font-size:17px;color:#39C;">12306火车票</span>
-    	<span class="strap"><span>铁道部客户服务官方网站</span></span> 
-    	<span>
-    	<!--p>铁路部门将全国铁路客户服务中心的电话统一为“12306”，并进一步规范客服业务流程和服务标准，旅客可以通过全国铁路客户服务中心网站或打电话“12306”等方式查询列车车次、时刻、票价、余票等信息。</p-->
-    	</span>
-    	<span class="tag" style="color:#d67b95">类型 : 火车票</a>
-    </a>
-    </li>
+    
 
     <li id="journal" class="buy-train"><a target="_blank" href="http://www.ctrip.com" class="journal-cls" data-id="1">
     	<span class="label" style="font-size:17px;color:#39C;">携程旅行网</span>
@@ -131,17 +189,69 @@
     	<span class="tag" style="color:#d67b95">类型 : 飞机票</a>
     </a>
     </li>
-     <li id="journal" class="buy-train"><a target="_blank" href="http://www.keyunzhan.com/" class="journal-cls" data-id="1">
-    	<span class="label" style="font-size:17px;color:#39C;">客运站</span>
-    	<span class="strap"><span>汽车时刻表查询</span></span> 
-    	<span>
-    	<!--p>提供长途汽车时刻表查询,长途汽车票查询,全国客运站查询,长途汽车售票点查询等,还提供全国各省各级城市长途客运出发车次,车型,票价,时刻等查询服务。</p-->
-    	</span>
-    	<span class="tag" style="color:#d67b95">类型 : 汽车票</a>
+     
+
+</ul>
+
+
+ <ul id="navigation_pri">
+    <h3><a class="btn-create">汽车票</a></h3><br><hr>
+          <li id="journal" class="buy-train"><a target="_blank" href="http://www.keyunzhan.com/" class="journal-cls" data-id="1">
+        <span class="label" style="font-size:17px;color:#39C;">客运站</span>
+        <span class="strap"><span>汽车时刻表查询</span></span> 
+        <span>
+        <!--p>提供长途汽车时刻表查询,长途汽车票查询,全国客运站查询,长途汽车售票点查询等,还提供全国各省各级城市长途客运出发车次,车型,票价,时刻等查询服务。</p-->
+        </span>
+        <span class="tag" style="color:#d67b95">类型 : 汽车票</a>
+    </a>
+    </li>
+</ul>
+
+ <ul id="navigation_pri">
+    <h3><a class="btn-create">船票</a></h3><br><hr>
+          <li id="journal" class="buy-train"><a target="_blank" href="http://www.kuaida.net/chuan/" class="journal-cls" data-id="1">
+        <span class="label" style="font-size:17px;color:#39C;">快达航空</span>
+        <span class="strap"><span>综合性商旅平台</span></span> 
+        <span>
+        <!--p>提供长途汽车时刻表查询,长途汽车票查询,全国客运站查询,长途汽车售票点查询等,还提供全国各省各级城市长途客运出发车次,车型,票价,时刻等查询服务。</p-->
+        </span>
+        <span class="tag" style="color:#d67b95">类型 : 飞机票 船票</a>
+    </a>
+    </li>
+    <li id="journal" class="buy-train"><a target="_blank" href="http://www.dlpazl.com/" class="journal-cls" data-id="1">
+        <span class="label" style="font-size:17px;color:#39C;">大连船票网</span>
+        <span class="strap"><span>卖船票的</span></span> 
+        <span>
+        <!--p>提供长途汽车时刻表查询,长途汽车票查询,全国客运站查询,长途汽车售票点查询等,还提供全国各省各级城市长途客运出发车次,车型,票价,时刻等查询服务。</p-->
+        </span>
+        <span class="tag" style="color:#d67b95">类型 : 船票</a>
+    </a>
+    </li>
+
+    <li id="journal" class="buy-train"><a target="_blank" href="http://www.0535-0411.com/" class="journal-cls" data-id="1">
+        <span class="label" style="font-size:17px;color:#39C;">烟大船票网</span>
+        <span class="strap"><span>最好的大连船票网上订购平台</span></span> 
+        <span>
+        <!--p>提供长途汽车时刻表查询,长途汽车票查询,全国客运站查询,长途汽车售票点查询等,还提供全国各省各级城市长途客运出发车次,车型,票价,时刻等查询服务。</p-->
+        </span>
+        <span class="tag" style="color:#d67b95">类型 : 船票</a>
+            
+        <li id="journal" class="buy-train"><a target="_blank" href="http://weihai.0535-0411.com/" class="journal-cls" data-id="1">
+        <span class="label" style="font-size:17px;color:#39C;">威海船票网</span>
+        <span class="strap"><span>最好的威海船票网上订购平台</span></span> 
+        <span>
+        <!--p>提供长途汽车时刻表查询,长途汽车票查询,全国客运站查询,长途汽车售票点查询等,还提供全国各省各级城市长途客运出发车次,车型,票价,时刻等查询服务。</p-->
+        </span>
+        <span class="tag" style="color:#d67b95">类型 : 船票</a>
+    </a>
+    </li>
     </a>
     </li>
 
 </ul>
+
+
+
 		<div id="siteinfo">
 				<p>Copyright &copy; 村长works 2013</p>
 				<p>Email:aiesecliyang.dalian@gmail.com</p>
