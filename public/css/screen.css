@@ -14,8 +14,8 @@ body { text-rendering:optimizeLegibility; font-family:"'微软雅黑','宋体'";
 ---------------------------------------------------------------------- */
 
 ul li a span.strap { display:block; text-align:center;  }
-ul li a span.label { display:block; text-align:center; padding:2px 0 5px 0; font-size:12px; font-weight:normal; font-style:normal; text-transform:uppercase; letter-spacing:1px; color:#000; }
-ul li span.label span { display:inline; font-size:15px; }
+ul li a span.label { display:block; text-align:center;color:#fff; padding:2px 0 5px 0; font-size:12px; font-weight:normal; font-style:normal; text-transform:uppercase; letter-spacing:1px; color:#000; }
+ul li span.label span { display:inline; font-size:17px;color:#fff; }
 ul li span.label span.kern-a { display:inline; font-size:15px; letter-spacing:0px; }
 ul li span.label span.kern { display:inline; font-size:12px; letter-spacing:0px; }
 ul li a:link, ul li a:visited, ol li a:link, ol li a:visited { color:#999;text-decoration:none; }
@@ -174,18 +174,14 @@ ul#navigation_pri { clear:both; float:left; list-style-type:none; margin:12px 0 
 .home ul#navigation_pri { margin:5px 0 0 0; padding:0 0 10px 0; background:transparent; }
 .external ul#navigation_pri { margin:12px 0 10px 0; padding:0; background:transparent; }
 
-ul li#biography, ul li#journal, ul li#archive, ul li#contact { line-height:18px; float:left; width:198px; padding:10px; border:1px solid #DDD; color:#333; -webkit-box-shadow: 1px 1px 7px rgba(153, 153, 153, 0.2); -moz-box-shadow: 1px 1px 7px rgba(153, 153, 153, 0.2); box-shadow: 1px 1px 7px rgba(153, 153, 153, 0.2); border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px; background:url(../images/site/card.png); }
+ul li#biography, ul li#journal, ul li#archive, ul li#contact { line-height:18px; float:left; width:198px; padding:10px; border:1px solid #DDD; color:#333; -webkit-box-shadow: 1px 1px 7px rgba(153, 153, 153, 0.2); -moz-box-shadow: 1px 1px 7px rgba(153, 153, 153, 0.2); box-shadow: 1px 1px 7px rgba(153, 153, 153, 0.2); border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px; }
 
-ul li#biography, ul li#journal, ul li#archive { margin:10px 10px 0px 0px;height:80px; }
+ul li#biography, ul li#journal, ul li#archive { margin:10px 10px 0px 0px;height:90px; }
 ul li#contact { margin:0; }
 
-ul li#biography a span.label { background:url(../images/site/n-pig.png) repeat-x center bottom; }
-ul li#journal a span.label { background:url(../images/site/n-butterfly.png) repeat-x center bottom; }
-ul li#archive a span.label { background:url(../images/site/n-bigfish.png) repeat-x center bottom; }
-ul li#contact a span.label { background:url(../images/site/n-crab.png) repeat-x center bottom; }
+ul li#biography a span.label { color:#fff;font-size:17px; }
 .biography ul li#biography, .journal ul li#journal, .archive ul li#archive, .contact ul li#contact { background-color: rgb(255, 255, 255); opacity:1.0; }
 .biography ul li#journal, .biography ul li#archive, .biography ul li#contact, .journal ul li#biography, .journal ul li#archive, .journal ul li#contact, .archive ul li#biography, .archive ul li#journal, .archive ul li#contact, .contact ul li#biography, .contact ul li#journal, .contact ul li#archive { background-color: rgb(255, 255, 255); opacity:0.6; }
-ul li#biography:hover, ul li#journal:hover, ul li#archive:hover, ul li#contact:hover { background-color: rgb(255, 255, 255); opacity:1.0; background-position:center -30px; }
 
 ul#subnav-a, ul#subnav-b, ul#subnav-c, ul#subnav-d, ul#subnav-e { float:left; list-style-type:none; margin:0 0 10px 0; padding:0; }
 ul#subnav-b { margin:0; padding:0 0 50px 0; line-height:18px; }
@@ -274,8 +270,6 @@ ul li.mf a { background:url(../images/site/hcard.gif) no-repeat center right; pa
 ul li#biography, ul li#journal, ul li#archive { margin:0 0 10px 0; }
   .home ul#navigation_pri { padding-bottom:30px; }
 h1 { margin:0; }
-  #branding a { width:306px; background-position:center top; }
-  #branding a:hover { background-position:center -90px; }
   ul#navigation_pri li, ul#subnav-a li, ul#subnav-b li, ul#subnav-c li, ul#subnav-d li { width:285px; }
 	.biography ul#navigation_pri li a span.label, .journal ul#navigation_pri li a span.label, .archive ul#navigation_pri li a span.label, .contact ul#navigation_pri li a span.label, .biography ul#subnav-a li a span.label, .journal ul#subnav-a li a span.label, .archive ul#subnav-a li a span.label, .contact ul#subnav-a li a span.label, .biography ul#subnav-b li a span.label, .journal ul#subnav-b li a span.label, .archive ul#subnav-b li a span.label, .contact ul#subnav-b li a span.label { padding:2px 0 0px 0; background:none; }
   .home ul#navigation_pri li a span.label, .external ul#navigation_pri li a span.label { padding:2px 0 105px 0; background-repeat:no-repeat; }

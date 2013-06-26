@@ -1,0 +1,100 @@
+body{
+    margin:0px;
+}
+
+
+.mp-nav{
+    position: relative;
+    zoom: 1;
+    background: #edf4ed;
+    width: 100%;
+    min-width: 950px;
+    overflow: hidden;
+    height:80px;
+   
+}
+
+.logo{
+    font-size:28px;
+    margin-left:10%;
+    font-weight:bold;
+    color:#398;
+}
+.sub-logo{
+    font-size:14px;
+    color:#999;
+    float:left;
+    position:absolute;
+    margin-left:1%;
+}
+.sidebar-nav{
+    list-style:none;float:left;position:relative;
+}
+
+.sb-nav{
+    position:absolute;
+    top:10px;
+    left:60%;
+}
+.sidebar-li{
+    float:left;
+    margin-left:10px;
+    font-size:15px;
+    color:#39B;
+}
+.btn-create{
+    float:left;font-size:20px;color:#6BB;margin-right:5px;
+}
+
+.arrow-right{
+	height:64px;
+	width:64px;
+	position:absolute;
+	float:right;
+	margin-left:170px;
+	margin-top:20px;
+    background: url("../images/arrow_right.png") no-repeat 0 0;
+}
+.buy-train{
+	background-color:#2DC;
+}
+
+.buy-train:hover{
+	background-color:#221;
+}
+
+.buy-plane{
+	background-color:#375;
+}
+
+.buy-plane:hover{
+	background-color:#221;
+}
+
+.buy-bus{
+	background-color:#B66;
+}
+
+.buy-bus:hover{
+	background-color:#221;
+}
+
+.buy-boat{
+	background-color:#8c9;
+}
+
+.buy-boat:hover{
+	background-color:#221;
+}
+
+.label-title{
+	display: block;
+	text-align: center;
+	color: #fff;
+	padding: 2px 0 5px 0;
+	font-size: 17px;
+	font-weight: normal;
+	font-style: normal;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
