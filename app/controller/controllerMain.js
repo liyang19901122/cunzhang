@@ -4,6 +4,11 @@ controllerMain.index = function(req, res) {
 	res.render('index');
 }
 
+controllerMain.job = function(req, res) {
+	res.render('job');
+}
+
+
 controllerMain.loginPost = function(req, res) {
 	res.send('login post');
 }

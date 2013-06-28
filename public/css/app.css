@@ -28,7 +28,7 @@ body{
     margin-left:1%;
 }
 .sidebar-nav{
-    list-style:none;float:left;position:relative;
+    list-style:none;float:right;position:relative;
 }
 
 .sb-nav{

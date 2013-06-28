@@ -20,11 +20,13 @@ module.exports = function(app){
 
 	app.get('/index', controllerMain.index);
 
-	app.post('/login/post',controllerMain.loginPost);
+	app.get('/job',controllerMain.job);
 
-	app.get('/main',controllerIndex.main);
+	//app.post('/login/post',controllerMain.loginPost);
 
-	app.get('/video',controllerIndex.video);
+	//app.get('/main',controllerIndex.main);
+
+	//app.get('/video',controllerIndex.video);
 	
 }
 
