@@ -95,6 +95,14 @@ body{
     background-color:#221;
 }
 
+.buy-question{
+    background-color:#6b9;
+}
+
+.buy-question:hover{
+    background-color:#221;
+}
+
 .label-title{
 	display: block;
 	text-align: center;
