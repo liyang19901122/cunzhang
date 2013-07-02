@@ -1,0 +1,308 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    
+<!-- META -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<meta name="description"
+content="名人名言大全" />
+<meta name="author" content="村长-李杨" />
+<meta name="Copyright" content="Copyright &copy;2013 村长works" />
+
+<!-- TITLE -->
+<title>名人名言大全</title>
+
+<meta name="viewport" content="width=device-width" />
+
+<!-- CSS -->
+<link href="../../../css/screen.css" type="text/css" rel="stylesheet" media="screen" />
+<!--[if IE 6]><link href="/css/screen-ie6.css" type="text/css" rel="stylesheet" media="screen" /><![endif]-->
+<!--[if IE 7]><link href="/css/screen-ie7.css" type="text/css" rel="stylesheet" media="screen" /><![endif]-->
+<!--[if IE 8]><link href="/css/screen-ie8.css" type="text/css" rel="stylesheet" media="screen" /><![endif]-->
+
+<!-- JS -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="js/app/onload.js"></script>
+<script type="text/javascript" src="js/app/scrollto.js"></script>
+<!--[if IE 6]><script type="text/javascript" src="/js/belatedpng-0.0.7a.js"></script><![endif]-->
+<!--[if IE 6]><script type="text/javascript" src="/js/ie6.js"></script><![endif]-->
+<script src="/mint/?js" type="text/javascript"></script>
+
+<!-- FAVICON -->
+<link rel="shortcut icon" href="http://colly.com/favicon.ico" />
+
+<!-- iPHONE -->
+<link rel="apple-touch-icon" href="/apple-touch-icon-precomposed.png"/>
+<style>
+.btn-create{
+	border:solid 2px #ddd;
+	padding:5px;
+}
+.btn-close{
+	border:solid 2px #ddd;
+	padding:5px;
+}
+
+.btn-delete{
+	padding:10px;
+	color:#fff;
+	background-color:red;
+}
+
+.btn-edit{
+	padding:10px;
+	color:#fff;
+	background-color:#393;
+}
+.btn-ok{
+	border:solid 2px #ddd;
+	padding:5px;
+	color:#39c;
+}
+.create-window{
+	display:none;
+	border:solid 3px #ddd;
+	width:600px;
+	height:400px;
+	margin-left:200px;
+	position:absolute;
+	top:200px;
+	vertical-align: right;
+	background-color:#FFFAFA;
+	filter:alpha(opacity=50,Style=0);
+}
+
+.detail-window{
+	display:none;
+	border:solid 3px #ddd;
+	width:600px;
+	height:270px;
+	margin-left:200px;
+	position:absolute;
+	top:300px;
+	vertical-align: right;
+	background-color:#FFFAFA;
+	filter:alpha(opacity=50,Style=0);
+}
+
+.create-window-content{
+	padding:10px;
+}
+
+.detail-window-content{
+	padding:10px;
+}
+
+.input-label{
+	margin-top:10px;
+	width:30px;
+	float:left;
+	position:relative;
+}
+.input-title{
+	margin-top:10px;
+	margin-left:30px;
+	height:20px;
+	border:solid 2px #ddd;
+	width:400px;
+}
+
+.input-content{
+	margin-left:30px;
+	margin-top:10px;
+	height:40px;
+	border:solid 2px #ddd;
+	width:400px;
+}
+
+.window-title{
+	margin: 0 0 8px 0;
+	padding: 10px 0 0px 0;
+}
+
+.action-group{
+	margin-left:50%;
+}
+
+.pagination{
+	margin-left:40%;
+}
+
+.tb-words{
+	margin-top:80px;
+	font-size:16px;
+	text-align:center;
+	margin-left:20%;
+}
+
+.tb-words td{
+	min-width:60px;
+	margin-left:20px;
+	max-width:600px;
+	border-bottom:1px solid #ddd;
+}
+
+</style>
+<script>
+	$(function(){
+		$(".journal-cls").click(function(){
+			var id = $(this).data("id");
+			$(".detail-window").css("display","inline");
+		});
+
+		$(".btn-create").click(function(){
+			$(".create-window").css("display","inline");
+		});
+
+		$(".btn-close").click(function(){
+			$(".create-window").css("display","none");
+		});
+
+		$(".btn-ok").click(function(){
+			var name = $("#add-name").val();
+			var words = $("#add-words").val();
+			var tags = $("#add-tags").val();
+			var like = $("#add-like").val();
+			var status = $("#add-status").val();
+			var type = $("#add-type").val();
+			$.post('/words/admin/add',{
+				name:name,
+				words:words,
+				tags:tags,
+				like:like,
+				status:status,
+				type:type
+			},function(){	
+				location.reload();
+			});
+		});
+
+		$(".btn-delete").click(function(){
+			var id = $(this).data("id");
+			$.post("/words/admin/delete",{
+				id:id
+			},function(){
+				location.reload();
+			});
+		});
+	});
+	
+</script>
+
+
+</head>
+
+<body class="home">
+    
+	<div id="page">
+
+		<div id="branding">
+    			<h2>名人名言管理</h2>	
+		</div>
+		<div>
+		<h3><a class="btn-create" style="float:left;color:#000;" href="javascript:void(0);">创建</a></h3>
+		</div>
+		<table class="tb-words">
+			<tr>
+				<td class="column-name">id</td>
+    			<td class="column-name">name</td>
+    			<td class="column-name">words</td>
+    			<td class="column-name">tags</td>
+    			<td class="column-name">like</td>
+    			<td class="column-name">status</td>
+    			<td class="column-name">type</td>
+    			<td class="column-name">update_time</td>
+    			<td class="column-name">create_time</td>
+			</tr>
+			 <% if(locals.results) { %>
+                   <% for(var i=0; i<results.length; i++) {%>
+                  <tr>
+                    <td class="column-name">
+                      <%= results[i]['id'] %>
+                    </td>
+                    <td class="column-name">
+                      <%= results[i]['name'] %>
+                    </td>
+                    <td class="column-name">
+                      <%= results[i]['words'] %>
+                    </td>
+                    <td class="column-name">
+                      <%= results[i]['tags'] %>
+                    </td>
+                     <td class="column-name">
+                      <%= results[i]['like'] %>
+                    </td>
+                     <td class="column-name">
+                      <%= results[i]['status'] %>
+                    </td>
+                     <td class="column-name">
+                      <%= results[i]['type'] %>
+                    </td>
+                     <td class="column-name">
+                      <%= results[i]['update_time'] %>
+                    </td>
+                     <td class="column-name">
+                      <%= results[i]['create_time'] %>
+                    </td>
+                    <td style="width:100px;">
+                      <h3><a class="btn-edit" style="float:left;position:relative;margin: 0px 0px 15px 0px;margin-left:5px;" href="javascript:void(0);"><span style="color:#fff;">修改</span></a></h3>
+                      <h3><a style="float:left;position:relative;margin: 0px 0px 15px 25px;" data-id="<%= results[i]['id'] %>" class="btn-delete" href="javascript:void(0);" id="btn-login"><span style="color:#fff;">删除</span></a></h3>
+                            
+                    </td>
+                  </tr>
+                   <% } %>
+            <% } %>
+
+		</table>
+		<input type="hidden" value="<%pageNo%>" id="hidden-pageNo"/>
+		<div class="pagination" style="">
+			<ul style="list-style:none">
+				<li>
+						<li style="float:left;margin: 80px 10px 0px 0px;height: 40px">
+							<% if(pageNo>1) {%>
+							<h3><a class="btn-ok" href="/words/admin/index?pageNo=<%=pagePre%>" >&lt;前一页</a></h3>
+							<% } else {%>	
+							<h3><a class="btn-ok" href="javascript:void(0);" >&lt;前一页</a></h3>
+							<% } %>
+						</li>
+						<li style="float:left;margin: 80px 10px 0px 0px;height: 40px">
+							<h3><a class="btn-close" href="/words/admin/index?pageNo=<%=pageNext%>">后一页></a></h3>
+						</li>
+				</li>
+			</ul>	
+		</div>
+		<div id="siteinfo">
+				<p>Copyright &copy; 村长works 2013</p>
+				<p>Email:aiesecliyang.dalian@gmail.com</p>
+		</div>
+		<div class="create-window">
+			<div class="create-window-content">
+				<div class="window-title">
+	    			<h4>创建便签</h4>	
+				</div>
+				<span class="input-label">name:</span><input type="text" id="add-name" class="input-title" value=""/><br>
+				<span class="input-label">words:</span><textarea class="input-content" id="add-words" value=""></textarea><br>
+				<span class="input-label">tags:</span><input type="text" id="add-tags" class="input-title" value=""/><br>
+				<span class="input-label">like:</span><input type="text" id="add-like" class="input-title" value="1"/><br>
+				<span class="input-label">status:</span><input type="text" id="add-status" class="input-title" value="new"/><br>
+				<span class="input-label">type:</span><input type="text" id="add-type" class="input-title" value="word"/><br>
+
+
+				<div class="action-group">
+				<ul style="list-style:none">
+					<li style="float:left;margin: 10px 10px 0px 0px;height: 40px">
+						<h3><a class="btn-ok">创建便签</a></h3>
+						
+					</li>
+					<li style="float:left;margin: 10px 10px 0px 0px;height: 40px">
+						<h3><a class="btn-close" href="javascript:void(0);">关闭</a></h3>
+					</li>
+				</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -3,7 +3,7 @@
  */
 var controllerMain = require('./app/controller/controllerMain');
 var controllerIndex = require('./app/controller/controllerIndex');
-
+var controllerWords = require('./app/controller/controllerWords');
 
 /**
  *
@@ -21,6 +21,16 @@ module.exports = function(app){
 	app.get('/index', controllerMain.index);
 
 	app.get('/job',controllerMain.job);
+
+	app.get('/words',controllerWords.index);
+
+	app.get('/words/search/:type',controllerWords.search);
+
+	app.get('/words/admin/index',controllerWords.admin);
+
+	app.post('/words/admin/add',controllerWords.create);
+
+	app.post('/words/admin/delete',controllerWords.delete);
 
 	//app.post('/login/post',controllerMain.loginPost);
 
