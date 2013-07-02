@@ -1,7 +1,7 @@
 var controllerWords = module.exports;
 var daoWords = require("../dao/daoWords");
 
-var pageSize = 2;
+var pageSize = 10;
 
 controllerWords.index = function(req, res) {
 	res.render('words/index');
