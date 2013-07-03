@@ -147,7 +147,6 @@ controllerWords.allSearch = function(req, res) {
 			pagePre: pagePre,
 			pageNext: pageNext,
 			pageNo: pageNo,
-			type: type,
 			keyword: keyword
 		};
 		res.send(data);
