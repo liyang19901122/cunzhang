@@ -1,5 +1,6 @@
 var controllerWords = module.exports;
 var daoWords = require("../dao/daoWords");
+var urllib = require('url');
 
 var pageSize = 10;
 
@@ -94,7 +95,7 @@ controllerWords.search = function(req, res) {
 			pageSize: pageSize,
 			keyword: keyword
 		};
-		daoWords.searchAll(options, function(err,results) {
+		daoWords.searchAll(options, function(err, results) {
 			if (results && results.length > 0) {
 				ret = results
 			}
@@ -138,12 +139,61 @@ controllerWords.allSearch = function(req, res) {
 		pageSize: pageSize,
 		keyword: keyword
 	};
-	daoWords.searchAll(options, function(err,results) {
+
+	//jsonp support:
+	var params = urllib.parse(req.url, true);
+	if (params.query && params.query.callback) {
+		daoWords.searchAll(options, function(err, results) {
+			if (results && results.length > 0) {
+				ret = results
+			}
+			var data = {
+				results: results,
+				pagePre: pagePre,
+				pageNext: pageNext,
+				pageNo: pageNo,
+				keyword:keyword
+			};
+			res.header('Content-type','application/json');
+			res.header('Charset','utf8');
+			var str = params.query.callback+'('+JSON.stringify(data)+')';
+			res.send(str);
+			return;
+		});
+		return;
+	}
+	return;
+}
+
+controllerWords.allSearchPost = function(req, res) {
+	var body = req.body;
+	var keyword = body.keyword;
+	var ret = [];
+	var pageNo = parseInt(body.pageNo);
+	if (!pageNo) {
+		pageNo = 1;
+	}
+
+	var pageNext = 1;
+	var pagePre = 1;
+	if (pageNo >= 1) {
+		pageNext = pageNo + 1;
+	}
+	if (pageNo > 1) {
+		pagePre = pageNo - 1;
+	}
+
+	options = {
+		pageNo: pageNo,
+		pageSize: pageSize,
+		keyword: keyword
+	};
+	daoWords.searchAll(options, function(err, results) {
 		if (results && results.length > 0) {
 			ret = results
 		}
 		var data = {
-			results:results,
+			results: results,
 			pagePre: pagePre,
 			pageNext: pageNext,
 			pageNo: pageNo,
