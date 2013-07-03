@@ -131,3 +131,23 @@ daoWords.searchByWords = function(options,cb){
 		});
 	});
 }
+
+daoWords.searchAll = function(options,cb){
+	var pageNo = options.pageNo;
+	var pageSize = options.pageSize;
+	var startPos = (pageNo - 1) * pageSize;
+	var keyword = options.keyword;
+	var sql = "select * from cz_words where words like '%"+keyword+"%' or name like '%"+keyword+"%' or tags like '%"+keyword+"%'  order by create_time desc limit ?,?";
+	pool.getConnection(function(err, connection) {
+		connection.query(sql,[startPos,pageSize],function(err, results) {
+			connection.end();
+			if (err) {
+				console.log(err);
+				cb(err, null);
+				return;
+			}
+			cb(err, results);
+			return;
+		});
+	});
+}

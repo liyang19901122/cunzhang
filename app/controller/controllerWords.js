@@ -20,10 +20,10 @@ controllerWords.search = function(req, res) {
 
 	var pageNext = 1;
 	var pagePre = 1;
-	if(pageNo>=1){
+	if (pageNo >= 1) {
 		pageNext = pageNo + 1;
 	}
-	if(pageNo>1){
+	if (pageNo > 1) {
 		pagePre = pageNo - 1;
 	}
 
@@ -40,11 +40,11 @@ controllerWords.search = function(req, res) {
 			}
 			res.render('words/search', {
 				results: ret,
-				pagePre : pagePre,
-				pageNext : pageNext,
-				pageNo : pageNo,
-				type : type,
-				keyword : keyword
+				pagePre: pagePre,
+				pageNext: pageNext,
+				pageNo: pageNo,
+				type: type,
+				keyword: keyword
 			});
 			return;
 		});
@@ -60,11 +60,11 @@ controllerWords.search = function(req, res) {
 			}
 			res.render('words/search', {
 				results: ret,
-				pagePre : pagePre,
-				pageNext : pageNext,
-				pageNo : pageNo,
-				type : type,
-				keyword : keyword
+				pagePre: pagePre,
+				pageNext: pageNext,
+				pageNo: pageNo,
+				type: type,
+				keyword: keyword
 			});
 			return;
 		});
@@ -80,11 +80,31 @@ controllerWords.search = function(req, res) {
 			}
 			res.render('words/search', {
 				results: ret,
-				pagePre : pagePre,
-				pageNext : pageNext,
-				pageNo : pageNo,
-				type : type,
-				keyword : keyword
+				pagePre: pagePre,
+				pageNext: pageNext,
+				pageNo: pageNo,
+				type: type,
+				keyword: keyword
+			});
+			return;
+		});
+	} else if (type === "all") {
+		options = {
+			pageNo: pageNo,
+			pageSize: pageSize,
+			keyword: keyword
+		};
+		daoWords.searchAll(options, function(err,results) {
+			if (results && results.length > 0) {
+				ret = results
+			}
+			res.render('words/search', {
+				results: ret,
+				pagePre: pagePre,
+				pageNext: pageNext,
+				pageNo: pageNo,
+				type: type,
+				keyword: keyword
 			});
 			return;
 		});
@@ -94,6 +114,46 @@ controllerWords.search = function(req, res) {
 		});
 		return;
 	}
+}
+
+controllerWords.allSearch = function(req, res) {
+	var keyword = req.query.keyword;
+	var ret = [];
+	var pageNo = parseInt(req.query.pageNo);
+	if (!pageNo) {
+		pageNo = 1;
+	}
+
+	var pageNext = 1;
+	var pagePre = 1;
+	if (pageNo >= 1) {
+		pageNext = pageNo + 1;
+	}
+	if (pageNo > 1) {
+		pagePre = pageNo - 1;
+	}
+
+	options = {
+		pageNo: pageNo,
+		pageSize: pageSize,
+		keyword: keyword
+	};
+	daoWords.searchAll(options, function(err,results) {
+		if (results && results.length > 0) {
+			ret = results
+		}
+		var data = {
+			results:results,
+			pagePre: pagePre,
+			pageNext: pageNext,
+			pageNo: pageNo,
+			type: type,
+			keyword: keyword
+		};
+		res.send(data);
+		return;
+	});
+	return;
 }
 
 controllerWords.admin = function(req, res) {
@@ -109,48 +169,45 @@ controllerWords.admin = function(req, res) {
 	};
 	var pageNext = 1;
 	var pagePre = 1;
-	if(pageNo>=1){
+	if (pageNo >= 1) {
 		pageNext = pageNo + 1;
 	}
-	if(pageNo>1){
+	if (pageNo > 1) {
 		pagePre = pageNo - 1;
 	}
 	daoWords.getAll(options, function(err, results) {
 		res.render('words/admin/index', {
 			results: results,
 			pageNo: pageNo,
-			pagePre:pagePre,
-			pageNext:pageNext
+			pagePre: pagePre,
+			pageNext: pageNext
 		});
 		return;
 	});
 	return;
 }
 
-Date.prototype.format = function(fmt)   
-{ //author: meizz   
-  var o = {   
-    "M+" : this.getMonth()+1,                 //月份   
-    "d+" : this.getDate(),                    //日   
-    "h+" : this.getHours(),                   //小时   
-    "m+" : this.getMinutes(),                 //分   
-    "s+" : this.getSeconds(),                 //秒   
-    "q+" : Math.floor((this.getMonth()+3)/3), //季度   
-    "S"  : this.getMilliseconds()             //毫秒   
-  };   
-  if(/(y+)/.test(fmt))   
-    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));   
-  for(var k in o)   
-    if(new RegExp("("+ k +")").test(fmt))   
-  fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));   
-  return fmt;   
+Date.prototype.format = function(fmt) { //author: meizz   
+	var o = {
+		"M+": this.getMonth() + 1, //月份   
+		"d+": this.getDate(), //日   
+		"h+": this.getHours(), //小时   
+		"m+": this.getMinutes(), //分   
+		"s+": this.getSeconds(), //秒   
+		"q+": Math.floor((this.getMonth() + 3) / 3), //季度   
+		"S": this.getMilliseconds() //毫秒   
+	};
+	if (/(y+)/.test(fmt))
+		fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+	for (var k in o)
+		if (new RegExp("(" + k + ")").test(fmt))
+			fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+	return fmt;
 }
 
 controllerWords.create = function(req, res) {
 	var data = req.body;
-	console.log(data);
 	var now = new Date().format("yyyy-MM-dd hh:mm:ss");
-	console.log(now);
 	var word = {
 		name: data.name,
 		words: data.words,

@@ -32,6 +32,8 @@ module.exports = function(app){
 
 	app.post('/words/admin/delete',controllerWords.delete);
 
+	app.post('/words/mobile/search',controllerWords.allSearch);
+
 	//app.post('/login/post',controllerMain.loginPost);
 
 	//app.get('/main',controllerIndex.main);
