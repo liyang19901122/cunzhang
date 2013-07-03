@@ -151,3 +151,19 @@ daoWords.searchAll = function(options,cb){
 		});
 	});
 }
+
+daoWords.getSuggest = function(cb){
+	var sql = "select * from cz_words where type='suggest' limit 0,10;";
+	pool.getConnection(function(err, connection) {
+		connection.query(sql,function(err, results) {
+			connection.end();
+			if (err) {
+				console.log(err);
+				cb(err, null);
+				return;
+			}
+			cb(err, results);
+			return;
+		});
+	});
+}

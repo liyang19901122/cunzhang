@@ -34,6 +34,8 @@ module.exports = function(app){
 
 	app.get('/words/mobile/search',controllerWords.allSearch);
 
+	app.get('/words/mobile/suggest',controllerWords.suggest);
+
 	//app.post('/words/mobile/search',controllerWords.allSearchPost);
 
 	//app.post('/login/post',controllerMain.loginPost);

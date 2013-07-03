@@ -117,6 +117,45 @@ controllerWords.search = function(req, res) {
 	}
 }
 
+
+
+controllerWords.suggest = function(req, res) {
+	//jsonp support:
+	var params = urllib.parse(req.url, true);
+	if (params.query && params.query.callback) {
+		daoWords.getSuggest(function(err, results) {
+			if (results && results.length > 0) {
+				var data = {
+					results: results
+				};
+				//res.header('Content-type', 'application/json');
+				//res.header('Charset', 'utf8');
+				var str = params.query.callback + '(' + JSON.stringify(data) + ')';
+				res.send(str);
+				return;
+			}
+			return;
+		});
+		return;
+	} else {
+		daoWords.getSuggest(function(err, results) {
+			if (results && results.length > 0) {
+				var data = {
+					results: results
+				};
+				//res.header('Content-type', 'application/json');
+				//res.header('Charset', 'utf8');
+				res.send(data);
+				return;
+			}
+			return;
+		});
+		return;
+	}
+	return;
+}
+
+
 controllerWords.allSearch = function(req, res) {
 	var keyword = req.query.keyword;
 	var ret = [];
@@ -152,11 +191,11 @@ controllerWords.allSearch = function(req, res) {
 				pagePre: pagePre,
 				pageNext: pageNext,
 				pageNo: pageNo,
-				keyword:keyword
+				keyword: keyword
 			};
-			res.header('Content-type','application/json');
-			res.header('Charset','utf8');
-			var str = params.query.callback+'('+JSON.stringify(data)+')';
+			res.header('Content-type', 'application/json');
+			res.header('Charset', 'utf8');
+			var str = params.query.callback + '(' + JSON.stringify(data) + ')';
 			res.send(str);
 			return;
 		});
