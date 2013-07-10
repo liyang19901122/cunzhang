@@ -1,0 +1,140 @@
+
+/* Apply these styles only when #preview-pane has
+   been placed within the Jcrop widget */
+.jcrop-holder #preview-pane {
+  display: block;
+  position: absolute;
+  z-index:1;
+  top: 430px;
+  left: 0px;
+  padding: 6px;
+  border: 1px rgba(0,0,0,.4) solid;
+  background-color: white;
+
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+
+  -webkit-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* The Javascript code will set the aspect ratio of the crop
+   area based on the size of the thumbnail preview,
+   specified here */
+#preview-pane .preview-container {
+  width: 200px;
+  height: 70px;
+  z-index:-1;
+  overflow: hidden;
+}
+
+.search-pane{
+  width:260px;
+  float:right;
+  position:absolute;
+  height:400px;
+  margin-top:-400px;
+  margin-left:650px;
+}
+
+.show-data{
+  position:absolute;
+  float:left;
+  margin-left:250px;
+
+}
+
+.search-box{
+  float:left;
+  width:190px;
+  height:28px;
+  border:2px solid #999;
+}
+.search{
+  width:240px;
+  overflow:hidden;
+}
+select {
+   background: transparent;
+   width: 240px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 1px solid #999;
+   border-radius: 3px;
+   height: 300px;
+   color:#fff;
+   background-color:#39c;
+   position: relative;
+   float:left;
+   -webkit-appearance: none;
+}
+
+.label-preview{
+  background-color:#393;
+  color:#fff;
+  padding:5px;
+  top:5px;
+}
+
+.label-preview-pane{
+  margin-top:5px;
+}
+
+.car-type-pane{
+  position:absolute;
+  width:400px;
+  height:160px;
+  float:left;
+}
+
+.car-type{
+  list-style:none;
+  float:left; 
+}
+
+.car-type li{
+  float:left;
+  margin-left:10px;
+  padding:10px;
+}
+
+#btn-ok{
+  background: #39d;
+  padding:10px;
+  font-size:18px;
+  font-weight:bold;
+  color:#fff;
+}
+
+.btn-type{
+  padding:10px;
+  background-color:#999;
+  color:#fff;
+}
+
+.btn-type-on{
+  padding:10px;
+  background-color:#78d;
+  color:#fff;
+}
+.content-main{
+  margin-top:20px;
+  float:left;
+}
+
+.show-all-datas{
+  height:40px;
+  top:100px;
+  float:left;
+  position:relative;
+}
+
+.tb-data td{
+  min-width:50px;
+}
+.tb-data input{
+  width:30px;
+}

@@ -1,192 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Aspect Ratio with Preview Pane | Jcrop Demo</title>
-  <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<title>carcorp</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<link rel="stylesheet" href="./app/main.css" type="text/css" />
+<link rel="stylesheet" href="./app/app.css" type="text/css" />
+<link rel="stylesheet" href="./css/jquery.Jcrop.css" type="text/css" />
+<link rel="stylesheet" href="./css/carcorp.css" type="text/css" />
 
 <script src="./js/jquery.min.js"></script>
-<script src="./js/jquery.Jcrop.js"></script>
+<script src="./js/jquery.Jcrop.min.js"></script>
+<script src="./js/carcorp.js"></script>
 <script type="text/javascript">
-  jQuery(function($){
-
-    // Create variables (in this scope) to hold the API and image size
-    var jcrop_api,
-        boundx,
-        boundy,
-
-        // Grab some information about the preview pane
-        $preview = $('#preview-pane'),
-        $pcnt = $('#preview-pane .preview-container'),
-        $pimg = $('#preview-pane .preview-container img'),
-
-        xsize = $pcnt.width(),
-        ysize = $pcnt.height();
-    
-    console.log('init',[xsize,ysize]);
-    $('#target').Jcrop({
-      onChange: updatePreview,
-      onSelect: updatePreview,
-      onRelease:  clearCoords
-      //aspectRatio: xsize / ysize
-    },function(){
-      // Use the API to get the real image size
-      var bounds = this.getBounds();
-      boundx = bounds[0];
-      boundy = bounds[1];
-      // Store the API in the jcrop_api variable
-      jcrop_api = this;
-
-      // Move the preview into the jcrop container for css positioning
-      $preview.appendTo(jcrop_api.ui.holder);
-    });
-
-    $('#coords').on('change','input',function(e){
-      var x1 = $('#x1').val(),
-          x2 = $('#x2').val(),
-          y1 = $('#y1').val(),
-          y2 = $('#y2').val();
-      jcrop_api.setSelect([x1,y1,x2,y2]);
-    });	
-
-    function updatePreview(c)
-    {
-      showCoords(c);
-      if (parseInt(c.w) > 0)
-      {
-        var rx = xsize / c.w;
-        var ry = ysize / c.h;
-
-        $pimg.css({
-          width: Math.round(rx * boundx) + 'px',
-          height: Math.round(ry * boundy) + 'px',
-          marginLeft: '-' + Math.round(rx * c.x) + 'px',
-          marginTop: '-' + Math.round(ry * c.y) + 'px'
-        });
-      }
-    };
-    // Simple event handler, called from onChange and onSelect
-    // event handlers, as per the Jcrop invocation above
-    function showCoords(c)
-    {
-	$('#x1').val(c.x);
-	$('#y1').val(c.y);
-	$('#x2').val(c.x2);
-	$('#y2').val(c.y2);
-	$('#w').val(c.w);
-	$('#h').val(c.h);
-    };
-
-    function clearCoords()
-    {
-	$('#coords input').val('');
-    };
-
-  });
 
 
 </script>
-<link rel="stylesheet" href="./app/main.css" type="text/css" />
-<link rel="stylesheet" href="./app/demos.css" type="text/css" />
-<link rel="stylesheet" href="./css/jquery.Jcrop.css" type="text/css" />
-<style type="text/css">
 
-/* Apply these styles only when #preview-pane has
-   been placed within the Jcrop widget */
-.jcrop-holder #preview-pane {
-  display: block;
-  position: absolute;
-  z-index: 2000;
-  top: 10px;
-  right: -280px;
-  padding: 6px;
-  border: 1px rgba(0,0,0,.4) solid;
-  background-color: white;
 
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
 
-  -webkit-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
-  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
-}
-
-/* The Javascript code will set the aspect ratio of the crop
-   area based on the size of the thumbnail preview,
-   specified here */
-#preview-pane .preview-container {
-  width: 250px;
-  height: 170px;
-  overflow: hidden;
-}
-
-</style>
 
 </head>
 <body>
 
-
-
-
-
 <div class="container">
-<div class="row">
-<div class="span12">
-<div class="jc-demo-box">
 
-<div class="page-header">
-<ul class="breadcrumb first">
-  <li class="active">汽车截图</li>
-</ul>
-	<h1>汽车截图</h1>
-</div>
+  <div class="row">
+    <div class="span12">
+      <div class="jc-demo-box" style="height:900px;">
+      <div class="page-header">
+        <div class="car-type-pane" >
+        <ul class="car-type">
+          <li>
+            <a href="javascript:void(0);" data-type="t1" class="btn-type-on">车标</a>
+          </li>
+          <li>
+             <a href="javascript:void(0);" data-type="t2" class="btn-type">车型</a> 
+          </li>
+          <li>
+             <a href="javascript:void(0);" data-type="t3" class="btn-type">车牌</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+      <div class="content-main">
+              <img src="app/sago.jpg" id="target" alt="" />
+                  
+              <div id="preview-pane">
+                <div class="preview-container">
+                  <img src="app/sago.jpg" class="jcrop-preview" alt="预览" />
+                </div>
+              </div>
 
-  <img src="./app/sago.jpg" id="target" alt="[Jcrop Example]" />
 
-  <div id="preview-pane">
-    <div class="preview-container">
-      <img src="app/sago.jpg" class="jcrop-preview" alt="Preview" />
+              <div id="search-pane" style="z-index:999;" class="search-pane">
+                <div id="search" class="search">
+                    <span style="float:left">车型:  </span><input id="textbox" type="text" class="search-box" />
+                    <select id="select" multiple>
+                      <option value="1">1</option>
+                      <option value="234567890">234567890</option>
+                      <option class="cls-opt" value="better">better</option>
+                      <option class="cls-opt" value="world">world</option>
+                      <option class="cls-opt" value="爱美">爱美</option>
+                      <option class="cls-opt" value="goodly deeds">goodly deeds</option>
+                      <option class="cls-opt" value="better">better</option>
+                      <option class="cls-opt" value="world">world</option>
+                      <option value="爱美">爱美</option>
+                      <option value="goodly deeds">goodly deeds</option>
+                      <option value="goodly deeds">goodly deeds</option>
+                      <option class="cls-opt"value="better">better</option>
+                      <option value="world">world</option>
+                      <option value="爱美">爱美</option>
+                      <option value="goodly deeds">goodly deeds</option>
+                         <option value="world">world</option>
+                      <option value="爱美">爱美</option>
+
+                    </select>
+                  </div>
+              </div>
+
+
+
+              <div class="label-preview-pane">
+                  <span class="label-preview">预览图:</span>
+              </div>
+
+               <!-- This is the form that our event handler fills -->
+               <div class="show-data">
+                <form id="coords"
+                  class="coords"
+                  onsubmit="return false;"
+                  action="">
+                  <div class="inline-labels">
+                    <label>X1 <input type="text" size="4" id="x1" name="x1" /></label>
+                    <label>Y1 <input type="text" size="4" id="y1" name="y1" /></label>
+                    <label>X2 <input type="text" size="4" id="x2" name="x2" /></label>
+                    <label>Y2 <input type="text" size="4" id="y2" name="y2" /></label>
+                    <label>W <input type="text" size="4" id="w" name="w" /></label>
+                    <label>H <input type="text" size="4" id="h" name="h" /></label>
+                    <a href="javascript:void(0);" id="btn-ok">确定</a>
+                  </div>
+                </form>
+              </div>
+
+              <div id="show-all-datas" class="show-all-datas">
+                <table class="tb-data">
+                    <tr>
+                        <td>类型</td>
+                        <td>X1</td>
+                        <td>Y1</td>
+                        <td>X2</td>
+                        <td>Y2</td>
+                        <td>高度</td>
+                        <td>宽度</td>
+                    </tr>
+                    <tr>
+                        <td>车标</td>
+                        <td><input id="t1x1" value=""/></td>
+                        <td><input id="t1y1" value=""/></td>
+                        <td><input id="t1x2" value=""/></td>
+                        <td><input id="t1y2" value=""/></td>
+                        <td><input id="t1h" value=""/></td>
+                        <td><input id="t1w" value=""/></td>
+                    </tr>
+                    <tr>
+                        <td>车型</td>
+                        <td><input id="t2x1" value=""/></td>
+                        <td><input id="t2y1" value=""/></td>
+                        <td><input id="t2x2" value=""/></td>
+                        <td><input id="t2y2" value=""/></td>
+                        <td><input id="t2h" value=""/></td>
+                        <td><input id="t2w" value=""/></td>
+                    </tr>
+                    <tr>
+                        <td>车牌</td>
+                        <td><input id="t3x1" value=""/></td>
+                        <td><input id="t3y1" value=""/></td>
+                        <td><input id="t3x2" value=""/></td>
+                        <td><input id="t3y2" value=""/></td>
+                        <td><input id="t3h" value=""/></td>
+                        <td><input id="t3w" value=""/></td>
+                    </tr>
+                </table>
+              </div>
+              <!--div style="margin-top:100px;">
+                <div class="segment"><b>&copy; 村长works 2013</b><br />
+                </div>
+              </div-->
+      </div><!--end of main-->
+
+      
+      <div class="clearfix"></div>
+      </div>
     </div>
   </div>
-
- <!-- This is the form that our event handler fills -->
-  <form id="coords"
-    class="coords"
-    onsubmit="return false;"
-    action="">
-
-    <div class="inline-labels">
-    <label>X1 <input type="text" size="4" id="x1" name="x1" /></label>
-    <label>Y1 <input type="text" size="4" id="y1" name="y1" /></label>
-    <label>X2 <input type="text" size="4" id="x2" name="x2" /></label>
-    <label>Y2 <input type="text" size="4" id="y2" name="y2" /></label>
-    <label>W <input type="text" size="4" id="w" name="w" /></label>
-    <label>H <input type="text" size="4" id="h" name="h" /></label>
-    </div>
-  </form>
-
-
-
-
-
-  <div class="description">
-  <p>
-    <b>
-  </p>
-  </div>
-
-<div class="tapmodo-footer">
-  <div class="segment"><b>&copy; 村长works 2013</b><br />
-  </div>
-</div>
-
-<div class="clearfix"></div>
-
-</div>
-</div>
-</div>
-</div>
 
 </body>
+<script>
+  jQuery.fn.filterByText = function(textbox, selectSingleMatch) {
+        return this.each(function() {
+            var select = this;
+            var options = [];
+            $(select).find('option').each(function() {
+                options.push({value: $(this).val(), text: $(this).text()});
+
+            });
+            $(select).data('options', options);
+            $(textbox).bind('change keyup', function() {
+                var options = $(select).empty().data('options');
+                var search = $(this).val().trim();
+                var regex = new RegExp(search,"gi");
+              
+                $.each(options, function(i) {
+                    var option = options[i];
+                    if(option.text.match(regex) !== null) {
+                        $(select).append(
+                           $('<option class="cls-opt">').text(option.text).val(option.value)
+                        );
+
+                    }
+                });
+                if (selectSingleMatch === true && $(select).children().length === 1) {
+                    $(select).children().get(0).selected = true;
+                }
+
+            });             
+        });
+    };
+
+    $(function() {
+        var corp = carcorp();
+        corp.init();
+
+        $("#btn-ok").click(function(){
+          var type = $(".btn-type-on").data("type");
+          var x1 = $("#x1").val();
+          var y1 = $("#y1").val();
+          var x2 = $("#x2").val();
+          var y2 = $("#y2").val();
+          var w = $("#w").val();
+          var h = $("#h").val();
+          $("#"+type+"x1").val(x1);
+          $("#"+type+"y1").val(y1);
+          $("#"+type+"x2").val(x2);
+          $("#"+type+"y2").val(y2);
+          $("#"+type+"w").val(w);
+          $("#"+type+"h").val(h);
+        });
+        $('#select').filterByText($('#textbox'), true);
+        /*
+        $(".cls-opt").live("click",function(){
+            alert("run here");
+            $(textbox).val($(this).val());
+        });*/
+        $(document).delegate('option','click',function(){
+           $(textbox).val($(this).val());
+        });
+
+        $(document).delegate('option','keydown',function(e){
+           alert("run here");
+           if(e.keyCode==13){
+             $(textbox).val($(this).val());
+           }
+        });
+    });
+
+    $(document).ready(function(){
+      /*
+         $(".cls-opt").live("click",function(){
+            //alert("run here");
+            $(textbox).val($(this).val());
+        });*/ 
+    });
+</script>
+
+
+
+</div>
+</body>
+
 </html>
 
