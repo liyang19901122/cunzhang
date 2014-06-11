@@ -78,7 +78,7 @@ if (cluster.isMaster) {
     console.log('worker ' + worker.process.pid + "died");
   });
 } else {
-    http.createServer(app).listen(8001, function() {
+    http.createServer(app).listen(80, function() {
       logger.info("elearn http server started http://61test.163.com:8001");
     });
 }
